@@ -14,6 +14,8 @@ for i in arr:
 
 
 
+
+
 for i in range((2*l[2])-1):
    print(range(l[0]-i,l[0]+1,1))
    print(i)

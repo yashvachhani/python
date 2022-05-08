@@ -1,5 +1,5 @@
 import os
-from datetime import datetime
+import datetime
 
 print(dir(os))
 
@@ -30,7 +30,7 @@ print(os.listdir())
 
 # os stat gives information about last modification file size kind of file info
 mod_time = os.stat('temp.py').st_mtime
-print(datetime.fromtimestamp(mod_time))
+#print(datetime.fromtimestamp(mod_time))
 
 # walk returns tree of all the files and folders 
 for dp, dn, fn in os.walk('.'):
@@ -45,5 +45,4 @@ print(os.environ.get('HOME'))
 
 filepath = os.path.join(os.environ.get('HOME'),'test.txt')
 print(filepath)
-
 

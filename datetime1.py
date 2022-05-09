@@ -7,4 +7,7 @@ print(f'this is todas\'s date {datetime.date.today()}')
 
 print(f'this is todas\'s day number {datetime.date.today().weekday()}')
 print(f'this is todas\'s iso day number {datetime.date.today().isoweekday()}')
+ 
+
+
 

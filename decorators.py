@@ -100,10 +100,13 @@ def display_info(name,age):
 display()
 display_info('Vachhani yash', 22)
 
+from functools import wraps
+
 # logger decorator
 def my_logger(orig_func):
 	import logging
 	logging.basicConfig(filename='{}.log'.format(orig_func.__name__),level = logging.INFO)
+	@wraps(orig_func)
 	def wrapper(*args,**kwargs):
 		logging.info(f'run with args {args} and kwargs {kwargs}')
 		return orig_func(*args,**kwargs)
@@ -112,6 +115,7 @@ def my_logger(orig_func):
 # timer function
 def my_timer(orig_func):
 	import time
+	@wraps(orig_func)
 	def wrapper(*args,**kwargs):
 		t1 = time.time()
 		result = orig_func(*args,**kwargs)
@@ -122,9 +126,12 @@ def my_timer(orig_func):
 
 import time
 
+@my_logger
 @my_timer
 def display_info(name,age):
 	time.sleep(8.888888888888888888)
 	print(f'display_info ran with argument {name} {age}')
 
-display_info('vachhani',22)
+# stacked decorators syntex
+display_info = my_logger(my_timer(display_info))
+display_info('vachhani',22) 

@@ -20,7 +20,6 @@ class DoublyLinkedList:
         if self.head is None:
             self.head = new_node
             return
-        
         last = self.head
         while last.next:
             last = last.next
@@ -48,7 +47,6 @@ class DoublyLinkedList:
             print(f"{node.prev} - {node.data} - {node.next} ")
             last = node
             node = node.next
-            
         print("\nTraversal in reverse direction")
         while last:
             print(f"{last.prev} - {last.data} - {last.next} ")
@@ -57,11 +55,9 @@ class DoublyLinkedList:
     def remove_at(self,index):
         if index<0 or index>= self.get_length():
             raise Exception('Invalid Index')
-      
         if index==0:
             self.head=self.head.next
             return
-        
         count=0
         itr=self.head
         while itr:
@@ -75,11 +71,9 @@ class DoublyLinkedList:
     def insert_at(self,index,data):
         if index<0 or index>self.get_length():
             raise Exception('Invalid Index')
-            
         if index==0:
             self.insert_at_begining(data)
             return
-        
         count = 0
         itr = self.head
         while itr:
@@ -90,7 +84,6 @@ class DoublyLinkedList:
                 itr.next = node
                 itr.next.next.prev =itr.next
                 break
-            
             itr = itr.next
             count += 1
     
@@ -116,8 +109,6 @@ class DoublyLinkedList:
             count+=1
         raise Exception('location is invalid')
 
-
-
 if __name__ == "__main__":
     llist = DoublyLinkedList()
     llist.insert_velues([1,2,3,3,4,5,6,7,8,9])
@@ -127,5 +118,4 @@ if __name__ == "__main__":
     llist.insert_at(3,8)
     llist.add_at(8,9)
     llist.remove_the(5)
-    llist.printList() 
-    
+    llist.printList()

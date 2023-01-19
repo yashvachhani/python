@@ -66,7 +66,7 @@ class LinkedList:
             break
          itr=itr.next
          count+=1
-
+ 
    def insert_at(self,index,data):
       if index<0 or index>self.get_length():
          raise Exception('Invalid Index')
@@ -90,15 +90,23 @@ class LinkedList:
       count=0
       itr=self.head
       while itr:
-         print(itr.data)
          if itr.data==loc:
-            print('we are in if')
             self.insert_at(count,data)
             return
          itr=itr.next   
          count+=1
       raise Exception('location is invalid')
 
+   def remove_the(self,loc):
+      count=0
+      itr=self.head
+      while itr:
+         if itr.data==loc:
+            self.remove_at(count)
+            return
+         itr=itr.next   
+         count+=1
+      raise Exception('location is invalid')
 
 
 if __name__ == "__main__":
